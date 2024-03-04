@@ -1,10 +1,10 @@
 # React Advanced Projects
 
-#### useState
+## useState
 
 1. Birthday Reminder
 
-#### useEffect and Conditional Rendering
+## useEffect and Conditional Rendering
 
 2. Tours
 3. Reviews
@@ -13,22 +13,22 @@
 6. Tabs
 7. Slider
 
-#### Forms
+## Forms
 
 8. Lorem Ipsum Generator
 9. Color Shades Generator
 10. Grocery Bud
 
-#### useRef
+## useRef
 
 11. Navbar
 
-#### useContext
+## useContext
 
 12. Modal and Sidebar
 13. Stripe Menus
 
-#### useReducer and useContext
+## useReducer and useContext
 
 14. Cart
 
