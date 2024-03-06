@@ -13,6 +13,9 @@ const ShortCircuit = () => {
       <button onClick={() => setIsError(isError)} className='btn' type='button'>
         Show me the Error
       </button>
+      {isError ? <h1>there is an Error</h1> : <div>
+        <h2>there isn't any error</h2>
+      </div>}
     </>
   );
 };
