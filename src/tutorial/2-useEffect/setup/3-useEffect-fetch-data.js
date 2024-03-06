@@ -6,13 +6,23 @@ const UseEffectFetchData = () => {
   const [users, setUsers] = useState([]);
 
   const getUsers = async () => {
-    const respons = await fetch(url);
-    const users = await respons.json();
-    setUsers(users);
-  }
+    try {
+      const response = await fetch(url);
+      if (!response.ok) {
+        throw new Error('Failed to fetch data');
+      }
+      const data = await response.json();
+      if (!Array.isArray(data)) {
+        throw new Error('Invalid data format');
+      }
+      setUsers(data);
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   useEffect(() => {
-    getUsers()
+    getUsers();
   }, []);
 
   return (
@@ -29,7 +39,7 @@ const UseEffectFetchData = () => {
                 <a href={html_url}>Profile</a>
               </div>
             </li>
-          )
+          );
         })}
       </ul>
     </>
