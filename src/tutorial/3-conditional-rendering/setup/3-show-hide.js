@@ -8,6 +8,10 @@ const ShowHide = () => {
     setSize(window.innerWidth)
   }
 
+  useEffect(() => {
+    window.addEventListener('resize', getSize)
+  }, [])
+
   const item = () => {
     return (
       <div className='section' style={{ marginTop: "2em" }}>{size} px</div>
