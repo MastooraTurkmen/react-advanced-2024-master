@@ -1,7 +1,22 @@
 import React, { useState, useEffect } from 'react';
 
 const ShowHide = () => {
-  return <h2>show/hide</h2>;
+  const [show, setShow] = useState(false);
+
+  const item = () => {
+    return (
+      <div className='section' style={{ marginTop: "2em" }}>Heyyyy</div>
+    )
+  }
+
+  return (
+    <div>
+      <button className='btn' type='button' onClick={() => setShow(!show)}>
+        show/hide
+      </button>
+      {show && item()}
+    </div>
+  )
 };
 
 export default ShowHide;
