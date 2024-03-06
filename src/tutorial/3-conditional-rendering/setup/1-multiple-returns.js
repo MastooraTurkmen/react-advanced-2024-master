@@ -13,6 +13,12 @@ const MultipleReturns = () => {
     </div>
   }
 
+  if (isError) {
+    return <div>
+      <h1>Error....</h1>
+    </div>
+  }
+
   return <h2>multiple returns</h2>;
 };
 
