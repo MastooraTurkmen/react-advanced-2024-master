@@ -15,11 +15,12 @@ const UseEffectFetchData = () => {
     getUsers()
   }, []);
 
-  return <>
+  return (
+    <>
       <h3>GitHub Users</h3>
-      <ul className='users'>{
-        users.map((user) => {
-          const { id, avatar_url, html_url, login } = user;
+      <ul className='users'>
+        {users.map((user) => {
+          const { id, login, avatar_url, html_url } = user;
           return (
             <li key={id}>
               <img src={avatar_url} alt={login} />
@@ -29,10 +30,10 @@ const UseEffectFetchData = () => {
               </div>
             </li>
           )
-        })
-      }
+        })}
       </ul>
-  </>;
+    </>
+  );
 };
 
 export default UseEffectFetchData;
