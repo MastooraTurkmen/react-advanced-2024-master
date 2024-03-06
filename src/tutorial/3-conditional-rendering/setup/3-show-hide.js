@@ -4,9 +4,13 @@ const ShowHide = () => {
   const [show, setShow] = useState(false);
   const [size, setSize] = useState(window.innerWidth);
 
+  const getSize = () => {
+    setSize(window.innerWidth)
+  }
+
   const item = () => {
     return (
-      <div className='section' style={{ marginTop: "2em" }}>Heyyyy</div>
+      <div className='section' style={{ marginTop: "2em" }}>{size} px</div>
     )
   }
 
