@@ -9,7 +9,10 @@ const ShowHide = () => {
   }
 
   useEffect(() => {
-    window.addEventListener('resize', getSize)
+    window.addEventListener('resize', getSize);
+    return (() => {
+      window.removeEventListener('resize', getSize)
+    })
   }, [])
 
   const item = () => {
