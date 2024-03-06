@@ -14,7 +14,10 @@ const ShowHide = () => {
 
   const item = () => {
     return (
-      <div className='section' style={{ marginTop: "2em" }}>{size} px</div>
+      <>
+        <h3 style={{ marginTop: "2em" }}>Window Size</h3>
+        <div className='section'>{size} px</div>
+      </>
     )
   }
 
