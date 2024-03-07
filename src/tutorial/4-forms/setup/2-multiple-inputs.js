@@ -5,6 +5,16 @@ import React, { useState } from 'react';
 // React
 // value, onChange
 
+const ControlledInputs = () => {
+  const [person, setPerson] = useState({ firstName: '', email: '', age: '' });
+  const [people, setPeople] = useState([]);
+  const handleChange = (e) => {
+    const name = e.target.name;
+    const value = e.target.value;
+    setPerson({ ...person, [name]: value });
+  };
+  
+  
   return (
     <>
       <article className='form'>
