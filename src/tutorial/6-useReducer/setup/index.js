@@ -5,10 +5,13 @@ import { data } from '../../../data';
 
 const Index = () => {
   const [showModal, setShowModal] = useState(false);
+  const [name, setName] = useState('');
+  const [people, setPeople] = useState(data);
 
   return (
     <>
       {showModal && <Modal />}
+      <form className='form'></form>
     </>
   )
 };
