@@ -4,7 +4,13 @@ import { data } from '../../../data';
 // reducer function
 
 const Index = () => {
-  return <h2>useReducer</h2>;
+  const [showModal, setShowModal] = useState(false);
+
+  return (
+    <>
+      {showModal && <Modal />}
+    </>
+  )
 };
 
 export default Index;
