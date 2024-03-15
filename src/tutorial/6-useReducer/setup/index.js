@@ -3,7 +3,25 @@ import Modal from './Modal';
 import { data } from '../../../data';
 
 // reducer function
-const reducer = (state, action) => { }
+const reducer = (state, action) => {
+  if (action.type === "ADD_ITEM") {
+    const newPeople = [...state.people, action.payload]
+
+    return {
+      ...state,
+      people: newPeople,
+      showModal: true,
+      modalContent: "item added"
+    }
+  }
+
+  if (action.type === 'NO_VALUE') {
+    return {
+      ...state,
+      modalContent: "Please add item"
+    }
+  }
+}
 const defaultState = {
   people: data,
   modalContent: 'hello',
