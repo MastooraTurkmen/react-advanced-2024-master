@@ -19,7 +19,10 @@ const Index = () => {
 
     if (name) {
       setName('')
+      const newItem = { id: new Date().getTime().toString(), name }
+      dispatch({ type: "ADD_ITEM", payload: newItem })
     } else {
+      dispatch({ type: 'NO_VALUE' })
     }
   }
 
