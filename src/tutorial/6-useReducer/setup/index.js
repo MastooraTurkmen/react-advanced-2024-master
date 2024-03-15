@@ -10,6 +10,14 @@ const Index = () => {
 
   const handleSumbit = (e) => {
     e.preventDefault();
+
+    if (name) {
+      setShowModal(true);
+      setPeople([...people, { id: new Date().getTime().toString(), name }])
+      setName('')
+    } else {
+      setShowModal(true)
+    }
   }
 
   return (
@@ -23,7 +31,12 @@ const Index = () => {
             onChange={(e) => setName(e.target.value)}
           />
         </div>
+        <button type='submit'>add</button>
       </form>
+      {people.map((person) => {
+        const { id, name } = person;
+        return <h4 key={id}>{name}</h4>
+      })}
     </>
   )
 };
