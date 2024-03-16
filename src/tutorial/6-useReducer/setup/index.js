@@ -21,7 +21,13 @@ const reducer = (state, action) => {
       modalContent: "Please add item"
     }
   }
+
+  if (action.type === 'REAMOVE_VALUE') {
+    
+  }
+
 }
+
 const defaultState = {
   people: data,
   modalContent: 'hello',
