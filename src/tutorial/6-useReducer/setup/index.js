@@ -54,6 +54,10 @@ const Index = () => {
     }
   }
 
+  const closeModal = () => {
+    dispatch({type: 'CLOSE_MODAL'})
+  }
+
   return (
     <>
       {state.showModal && <Modal modalContent={state.modalContent} />}
