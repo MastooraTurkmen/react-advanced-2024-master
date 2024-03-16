@@ -30,6 +30,14 @@ const reducer = (state, action) => {
     }
   }
 
+  if (action.type === 'REMOVE_ITEM') {
+    const newPeople = state.people.filter((item) => item.id !== action.payload)
+    return {
+      ...state,
+      people: newPeople
+    }
+  }
+
 }
 
 const defaultState = {
@@ -76,7 +84,7 @@ const Index = () => {
         return (
           <div key={id}>
             <h4>{name}</h4>
-            <button onClick={() => dispatch({ type: 'REMOVE_ITEM' })}>remove item</button>
+            <button onClick={() => dispatch({ type: 'REMOVE_ITEM', payload: id })}>remove item</button>
           </div>
         )
       })}
