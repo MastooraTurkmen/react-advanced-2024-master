@@ -73,7 +73,12 @@ const Index = () => {
       </form>
       {state.people.map((person) => {
         const { id, name } = person;
-        return <h4 key={id}>{name}</h4>
+        return (
+          <div key={id}>
+            <h4>{name}</h4>
+            <button onClick={() => dispatch({ type: 'REMOVE_ITEM' })}>remove item</button>
+          </div>
+        )
       })}
     </>
   )
