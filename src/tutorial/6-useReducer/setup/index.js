@@ -22,8 +22,12 @@ const reducer = (state, action) => {
     }
   }
 
-  if (action.type === 'REAMOVE_VALUE') {
-    
+  if (action.type === 'CLOSE_MODAL') {
+    return {
+      ...state,
+      modalContent: "Item removed",
+      showModal: false
+    }
   }
 
 }
