@@ -55,12 +55,12 @@ const Index = () => {
   }
 
   const closeModal = () => {
-    dispatch({type: 'CLOSE_MODAL'})
+    dispatch({ type: 'CLOSE_MODAL' })
   }
 
   return (
     <>
-      {state.showModal && <Modal modalContent={state.modalContent} />}
+      {state.showModal && <Modal closeModal={closeModal} modalContent={state.modalContent} />}
       <form onSubmit={handleSumbit} className='form'>
         <div>
           <input
