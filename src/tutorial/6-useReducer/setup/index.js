@@ -18,7 +18,8 @@ const reducer = (state, action) => {
   if (action.type === 'NO_VALUE') {
     return {
       ...state,
-      modalContent: "Please add item"
+      modalContent: "Please add item",
+      showModal: true
     }
   }
 
