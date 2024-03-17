@@ -5,21 +5,27 @@ import { data } from '../../../data.js'
 // fix - context api, redux (for more complex cases)
 
 const PropDrilling = () => {
-  const [people, setPeople] = useState(data)
+  const [people, setPeople] = useState(data);
+
+  const removeItem = (id) => {
+    setPeople((people) => {
+      return people.filter((person) => person.id !== id)
+    });
+  };
 
   return (
     <section>
       <h3>prop drilling</h3>
-      <List people={people} />
+      <List removeItem={removeItem} people={people} />
     </section>
   )
 };
 
-const List = ({ people }) => {
+const List = ({ people, removeItem }) => {
   return (
     <>
       {people.map((person) => {
-        return <SinglePerson key={person.id} />
+        return <SinglePerson key={person.id} {...person} removeItem={removeItem} />
       })
       }
     </>
@@ -27,10 +33,11 @@ const List = ({ people }) => {
 }
 
 
-const SinglePerson = ({ id, name }) => {
+const SinglePerson = ({ id, name, removeItem }) => {
   return (
     <div className='item'>
-      <h2>single person</h2>
+      <h4>{name}</h4>
+      <button onClick={() => removeItem(id)}>remove</button>
     </div>
   )
 }
