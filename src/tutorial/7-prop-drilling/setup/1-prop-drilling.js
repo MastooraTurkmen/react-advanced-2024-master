@@ -1,8 +1,10 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { data } from '../../../data.js'
 
 // more components
 // fix - context api, redux (for more complex cases)
+
+const ContextPerson = React.createContext()
 
 const PropDrilling = () => {
   const [people, setPeople] = useState(data);
@@ -14,18 +16,20 @@ const PropDrilling = () => {
   };
 
   return (
-    <section>
+    <ContextPerson.Provider value={{ removeItem, people }}>
       <h3>prop drilling</h3>
-      <List removeItem={removeItem} people={people} />
-    </section>
+      <List />
+    </ContextPerson.Provider>
   )
 };
 
-const List = ({ people, removeItem }) => {
+const List = () => {
+  const mainData = useContext(ContextPerson)
+
   return (
     <>
-      {people.map((person) => {
-        return <SinglePerson key={person.id} {...person} removeItem={removeItem} />
+      {mainData.people.map((person) => {
+        return <SinglePerson key={person.id} {...person} />
       })
       }
     </>
@@ -33,7 +37,9 @@ const List = ({ people, removeItem }) => {
 }
 
 
-const SinglePerson = ({ id, name, removeItem }) => {
+const SinglePerson = ({ id, name }) => {
+  const { removeItem } = useContext(ContextPerson)
+
   return (
     <div className='item'>
       <h4>{name}</h4>
