@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import data from '../../../data'
+import { data } from '../../../data.js'
 
 // more components
 // fix - context api, redux (for more complex cases)
@@ -7,25 +7,32 @@ import data from '../../../data'
 const PropDrilling = () => {
   const [people, setPeople] = useState(data)
 
-
-  const List = (peopleList) => {
-    people.map(() => {
-      const { name, id } = peopleList;
-      return (
-        <div className='item'>
-          <h2>{name}</h2>
-        </div>
-      )
-    })
-  }
-
-
   return (
     <section>
       <h3>prop drilling</h3>
-      <List peopleList={peopleList} />
+      <List people={people} />
     </section>
   )
 };
+
+const List = ({ people }) => {
+  return (
+    <>
+      {people.map((person) => {
+        return <SinglePerson key={person.id} />
+      })
+      }
+    </>
+  )
+}
+
+
+const SinglePerson = ({ id, name }) => {
+  return (
+    <div className='item'>
+      <h2>single person</h2>
+    </div>
+  )
+}
 
 export default PropDrilling;
